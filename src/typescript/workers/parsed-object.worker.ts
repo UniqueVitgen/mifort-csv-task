@@ -14,7 +14,7 @@ export class ParsedObjectWorker {
   }
 
   static getValidObjectListFromParsedObjectList(parsedObjectList: ParsedObject[]): Object[] {
-    console.log('parsedObject', parsedObjectList);
+    // console.log('parsedObject', parsedObjectList);
     let validParsedObjectList = this.getValidParsedObjectListFromParsedObjectList(parsedObjectList);
     return this.getObjectListFromParsedObjectList(validParsedObjectList);
   }

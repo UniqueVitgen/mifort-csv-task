@@ -29,7 +29,7 @@ export class DateTimeWorker {
   static convertStringDateToDateObject(dateString: string): any {
     if (dateString) {
       dateString = dateString.replace(/[/-]/g, '.');
-      console.log('date', dateString, new Date(dateString));
+      // console.log('date', dateString, new Date(dateString));
       return new Date(dateString);
     }
     // else {

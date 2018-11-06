@@ -73,7 +73,7 @@ export class DatabaseWorker {
     return new Promise((resolve, reject) => {
       if(csvUserList.length > 0) {
         let query = this.generateInsertIntoQueryString(tablename,columnProperties, csvUserList);
-        console.log(query);
+        // console.log(query);
         this.query(query, dbConfig.database).then(res => {
           resolve(res);
         }).catch(errQuery => reject(errQuery));
@@ -122,9 +122,43 @@ export class DatabaseWorker {
       }
       query += '\n';
     });
-    console.log('query', query);
+    // console.log('query', query);
     return query;
   }
+
+  // generateInsertIntoQueryString(tablename: string,
+  //   columnProperties: DatabaseProperty[], csvUserList: CsvUser[]): string {
+  //   let query = 'INSERT INTO ' + tablename;
+  //   query += '\n(';
+  //   columnProperties.forEach((property, index) => {
+  //     query += '\`' + property.name + '\`';
+  //     if (index != columnProperties.length - 1) {
+  //       query += ',';
+  //     }
+  //   });
+  //   query += ')\nVALUES';
+  //   let databaseUserList = CsvUserWorker.convertCsvUserListToDatabaseUserList(csvUserList);
+  //   databaseUserList.forEach((csvUser: any, csvUserIndex) => {
+  //     columnProperties.forEach((property, Propertyindex) => {
+  //       if (Propertyindex == 0) {
+  //         query += '(';
+  //       }
+  //       query += "\'" + csvUser[property.name] + "\'";
+  //       if (Propertyindex == columnProperties.length - 1) {
+  //         query += ')';
+  //       }
+  //       else {
+  //         query +=',';
+  //       }
+  //     });
+  //     if(csvUserIndex != databaseUserList.length -1) {
+  //       query += "\,";
+  //     }
+  //     query += '\n';
+  //   });
+  //   // console.log('query', query);
+  //   return query;
+  // }
 
   createDatabaseIfNotExists(databaseName: string): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -135,25 +169,35 @@ export class DatabaseWorker {
     });
   }
 
+  dropDatabaseIfExists(databaseName: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let that = this;
+      this.query('drop DATABASE IF EXISTS ' + databaseName + ';').then(result => {
+        resolve(result);
+      });
+    })
+  }
+
   selectObjectFromTable(table: string): Promise<CsvUser[]> {
     return new Promise((resolve, reject) => {
       let that = this;
       this.query('select * from ' + table, dbConfig.database).then(resultQuery => {
-        console.log(resultQuery);
+        // console.log(resultQuery);
         resolve(resultQuery);
-      }).catch(errorQuery => {reject(errorQuery);})
+      }, rejectQuery => reject(rejectQuery)).catch(errorQuery => {reject(errorQuery);})
     })
   }
 
   generateCreateTableIfNotExistsQueryString(table: string, properties: DatabaseProperty[]): string {
-    let query = 'CREATE Table IF NOT EXISTS ' + table + ' (\n'
+    let query = 'CREATE Table IF NOT EXISTS ' + table + ' (\n';
+    query += '\`id\` INT NOT NULL AUTO_INCREMENT,\n';
     properties.forEach((property, index) => {
       query += "`" + property.name + "` " + property.type + ' NOT NULL';
-      if (index != properties.length - 1) {
-        query += '\n,';
-      }
-    })
-    query += ')';
+      // if (index != properties.length - 1) {
+        query += ',\n';
+      // }
+    });
+    query += 'PRIMARY KEY (`id`)\n)';
     return query;
   }
 
@@ -163,6 +207,21 @@ export class DatabaseWorker {
       this.query(query, dbConfig.database).then((res) => {
         resolve(res);
       });
+    })
+  }
+
+  dropTableIfExists(table: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let query = 'drop DATABASE IF EXISTS ' + table + ';';
+      this.query(query, dbConfig.database).then((res) => {
+        resolve(res);
+      });
+    })
+  }
+
+  deleteTableIfExists(table:string, properties: DatabaseProperty[]): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let query =  this
     })
   }
 }

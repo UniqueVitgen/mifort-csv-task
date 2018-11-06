@@ -7,7 +7,7 @@ export class CsvUserWorker {
     let csvUser: CsvUser = new CsvUser();
     if(object)
     csvUser["Date of registration"] = DateTimeWorker.convertStringDateToDateObject(object["Date of registration"]);
-    console.log(csvUser["Date of registration"]);
+    // console.log(csvUser["Date of registration"]);
     csvUser.Mail = object.Mail;
     csvUser.Name = object.Name;
     csvUser.Phone = object.Phone;
@@ -36,7 +36,8 @@ export class CsvUserWorker {
   static convertToDatabaseObject(csvUser: CsvUser): any {
     let databaseUser: any = Object.assign({}, csvUser);
     if(databaseUser["Date of registration"]) {
-      databaseUser["Date of registration"] = csvUser["Date of registration"].toISOString().slice(0, 10);  
+      databaseUser["Date of registration"] = new Date(databaseUser["Date of registration"]);
+      databaseUser["Date of registration"] = databaseUser["Date of registration"].toISOString().slice(0, 10);  
     } return databaseUser;
   }
 

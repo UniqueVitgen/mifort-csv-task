@@ -2,7 +2,7 @@ import { csvFileConfig } from "../config/config";
 
 
 const csv = require('csv-parser');
-const fs = require('fs');
+import fs from 'fs';
 export class CsvWorker {
 
   readFromFile(filename: string): Promise<any[]> {
@@ -39,6 +39,12 @@ export class CsvWorker {
         }
       });
     });
+  };
+
+  deleteFile(filePath: string) {
+    // return new Promise((resolve, reject) => {
+      fs.unlinkSync(filePath);
+    // } )
   }
 
   private convertArrayOfObjectsToCSV(data: any, columnDelimiter: any, lineDelimiter: any) {  
