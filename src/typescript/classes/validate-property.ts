@@ -1,4 +1,5 @@
-import { CommonProperty } from "./CommonProperty";
+import { CommonProperty } from "./common-property";
+
 
 export class ValidateProperty extends CommonProperty {
   

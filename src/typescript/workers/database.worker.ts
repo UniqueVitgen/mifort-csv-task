@@ -1,11 +1,10 @@
 import * as mysqlWorker from 'mysql';
-import { CommonProperty } from "../classes/CommonProperty";
-import { DatabaseProperty } from "../classes/DatabaseProperty";
-import { CsvUser } from "../classes/CsvUser";
+import { DatabaseProperty } from "../classes/database-property";
 import { resolve } from "dns";
-import { ParsedObject } from "../classes/ParsedObject";
 import { CsvUserWorker } from "./csv-user.worker";
 import { dbConfig } from '../config/config';
+import { CsvUser } from '../classes/csv-user';
+import { ParsedObject } from '../classes/parsed-object';
 
 // var mysql = require('mysql');
 

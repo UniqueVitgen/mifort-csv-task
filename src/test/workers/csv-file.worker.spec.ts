@@ -1,5 +1,5 @@
-import { CsvWorker } from "../../typescript/workers/csv.worker";
 import { resolve } from "url";
+import { CsvWorker } from "../../typescript/workers/csv-file.worker";
 
 
 describe('CsvWorker class', () => {
@@ -40,7 +40,7 @@ describe('CsvWorker class', () => {
   });
 
 
-  describe('writeToFile ', () => {
+  describe('writeToFile and delete file', () => {
     it('should resolve', (done) => {
       csvWorker.writeToFile(testFilepath, sourceObjectList).then(resolve => {
         csvWorker.deleteFile(testFilepath);

@@ -1,5 +1,5 @@
-import { ParsedObject } from "../classes/ParsedObject";
 import { parse } from "path";
+import { ParsedObject } from "../classes/parsed-object";
 
 export class ParsedObjectWorker {
 
@@ -26,7 +26,26 @@ export class ParsedObjectWorker {
   }
 
   static getInvalidObjectListFromParsedObjectList(parsedObjectList: ParsedObject[]): Object[] { 
-    let invalidParsedObjectList = this.getInvalidParsedObjectListFromParsedObjectList(parsedObjectList);
+    const invalidParsedObjectList = this.getInvalidParsedObjectListFromParsedObjectList(parsedObjectList);
     return this.getObjectListFromParsedObjectList(invalidParsedObjectList);
+  }
+
+  static getErrorListString(parsedObject: ParsedObject, index: number): string {
+    const errorList = parsedObject.errorList;
+    let text = "row:" + index + "\n";;
+    for(let error of errorList) {
+      text += "\t" + error.property + ": " + error.message + ';\n';
+    }
+    return text;
+  }
+
+  static getErrorListFromParsedObjectList(parsedObjectList: ParsedObject[]): string {
+    let text = "";
+    parsedObjectList.forEach((parsedObject, index) => {
+      {
+        text += this.getErrorListString(parsedObject, index);
+      }
+    }) 
+    return text;
   }
 }

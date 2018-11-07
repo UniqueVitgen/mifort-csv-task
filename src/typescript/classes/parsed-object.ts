@@ -1,10 +1,11 @@
-import { CsvUser } from "./CsvUser";
 import { DateTimeWorker } from "../workers/date-time.worker";
+import { CsvUser } from "./csv-user";
+import { ErrorObject } from "./error-object";
 
 export class ParsedObject {
 
   isValid: boolean = true;
-  errorList: string[] = [];
+  errorList: ErrorObject[] = [];
   object!: CsvUser;
   originObject: any;
   
@@ -21,6 +22,6 @@ export class ParsedObject {
       this.object["Date of registration"] = DateTimeWorker.convertStringDateToDateObject(dateString);
     }
     this.originObject = Object.assign({}, obj);
-    this.originObject["Date of registration"] = DateTimeWorker.formatDate(date);
+    // this.originObject["Date of registration"] = DateTimeWorker.formatDate(date);
   }
 }

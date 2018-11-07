@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import { CsvUserWorker } from '../../typescript/workers/csv-user.worker';
-import { CsvUser } from '../../typescript/classes/CsvUser';
-import { CsvWorker } from '../../typescript/workers/csv.worker';
+import { CsvUser } from '../../typescript/classes/csv-user';
 
 
 describe('CsvUserWorker class', () => {

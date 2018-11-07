@@ -1,0 +1,16 @@
+row:0
+	Phone: invalid format;
+row:1
+	Mail: invalid format;
+	Phone: invalid format;
+row:2
+	Phone: invalid format;
+row:3
+	Name: invalid format;
+	Phone: invalid format;
+row:4
+	Mail: invalid format;
+	Phone: invalid format;
+row:5
+	Mail: invalid format;
+	Phone: invalid format;

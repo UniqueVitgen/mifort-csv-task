@@ -1,8 +1,7 @@
 import { ValidatorWorker } from "../../typescript/workers/validator.worker";
 import { expect } from "chai";
-import { ParsedObject } from "../../typescript/classes/ParsedObject";
 import { csvConfig } from "../../typescript/config/config";
-import { CsvUser } from "../../typescript/classes/CsvUser";
+import { ParsedObject } from "../../typescript/classes/parsed-object";
 
 describe('ValidatorWorker class',() => {
 
@@ -76,6 +75,7 @@ describe('ValidatorWorker class',() => {
     it('should return non empty error list', () => {
       let testParsedObject = validatorWorker.validateDateTypeOfParsedObject(invalidParsedObjectWrongDate);
       let result = testParsedObject.errorList.length == 1;
+      // console.log('errorList', testParsedObject);
       expect(result).to.equal(true);
     });
 
@@ -96,6 +96,7 @@ describe('ValidatorWorker class',() => {
     it('should return non empty error list', () => {
       let testParsedObject = validatorWorker.validateFieldByType(invalidParsedObjectWrongDate, 'Date of registration', csvConfig.csv[4]);
       let result = testParsedObject.errorList.length == 1;
+      // console.log(testParsedObject.errorList);
       expect(result).to.equal(true);
     })
   });

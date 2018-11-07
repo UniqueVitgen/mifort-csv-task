@@ -1,8 +1,9 @@
-import { ValidateProperty } from "../classes/ValidateProperty";
-import { DatabaseProperty } from "../classes/DatabaseProperty";
+import { ValidateProperty } from "../classes/validate-property";
+import { DatabaseProperty } from "../classes/database-property";
+import { ErrorObject } from "../classes/error-object";
 
 export const csvConfig = {
-  csv:<Array<ValidateProperty>> [
+  csv: <Array<ValidateProperty>>[
 
     {
       name: 'Name',
@@ -38,7 +39,7 @@ export const csvConfig = {
       validators: []
     }
   ],
-  db:<Array<DatabaseProperty>> [
+  db: <Array<DatabaseProperty>>[
 
     {
       name: 'Name',
@@ -77,14 +78,21 @@ export const dbConfig = {
   table: 'csv_rows'
 }
 
-function length(min: number, max: number): (Email: string) => boolean {
-  return function (Email: string): boolean {
-    return Email.length >= min && Email.length <= max;
+function length(min: number, max: number): (Email: string) => string | null {
+  return function (Email: string): string | null {
+    if (Email.length >= min && Email.length <= max) {
+      return 'length must be between ' + min + ' and ' + max;
+    };
+    return null;
   }
 }
 
-function regExp(pattern: RegExp): (Email: string) => boolean {
-  return function (Email: string): boolean {
-    return Email.match(pattern) != null;
+function regExp(pattern: RegExp): (Email: string) => string | null {
+  return function (Email: string): string | null {
+    if (Email.match(pattern) == null) {
+      // return 'value must be like regex ' + pattern;
+      return 'invalid format';
+    }
+    return null;
   }
 }

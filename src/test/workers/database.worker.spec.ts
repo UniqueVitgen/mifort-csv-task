@@ -3,10 +3,10 @@ import { csvConfig, dbConfig } from '../../typescript/config/config';
 import { DatabaseWorker } from '../../typescript/workers/database.worker';
 import { resolve } from 'url';
 import { expect } from 'chai';
-import { CsvUser } from '../../typescript/classes/CsvUser';
 import { CsvUserWorker } from '../../typescript/workers/csv-user.worker';
-import { ParsedObject } from '../../typescript/classes/ParsedObject';
 import { ValidatorWorker } from '../../typescript/workers/validator.worker';
+import { CsvUser } from '../../typescript/classes/csv-user';
+import { ParsedObject } from '../../typescript/classes/parsed-object';
 
 describe('databaseWorker class', () => {
   let databaseWorker: DatabaseWorker;

@@ -1,10 +1,10 @@
-import { CsvUser } from "../../typescript/classes/CsvUser";
 import { CsvUserWorker } from "../../typescript/workers/csv-user.worker";
 import { ParsedObjectWorker } from "../../typescript/workers/parsed-object.worker";
-import { ParsedObject } from "../../typescript/classes/ParsedObject";
 import { expect } from "chai";
 import { DateTimeWorker } from "../../typescript/workers/date-time.worker";
 import { csvConfig } from "../../typescript/config/config";
+import { CsvUser } from "../../typescript/classes/csv-user";
+import { ParsedObject } from "../../typescript/classes/parsed-object";
 // import  from '../log/out'
 
 function log(message: any) {

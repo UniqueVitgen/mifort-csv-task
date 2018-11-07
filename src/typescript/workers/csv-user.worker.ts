@@ -1,6 +1,6 @@
-import { CsvUser } from "../classes/CsvUser";
 import { csvConfig } from "../config/config";
 import { DateTimeWorker } from "./date-time.worker";
+import { CsvUser } from "../classes/csv-user";
 
 export class CsvUserWorker {
   static parseObjectToCsvUser(object: any): CsvUser {
