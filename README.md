@@ -1,19 +1,19 @@
 # Typescript task1 (CSV-parse)
 This is home for the csv-parser example application in typescript.
 
-##tags
+## Tags
 `mysql` `typescript` `node.js`
 
-##Getting started
+##  Getting started
 Download dependencies for this project by typing `npm install`, after configure application in file `config\config.ts` then run ant test.
 
-##Run 
+##  Run 
 To run application typing `npm start`
 
-##Test
+##  Test
 To test applicaiton typing `npm test`
 
-##Configuration
+##  Configuration
 To configure change following code in `config\config.ts`:
 
 * database connection
