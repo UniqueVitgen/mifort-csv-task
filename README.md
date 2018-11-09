@@ -1,5 +1,5 @@
 # Typescript task1 (CSV-parse)
-This is home for the csv-parser example application in typescript. ![My pic](https://www.google.by/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiv64q6psjeAhXxqIsKHeZ-BGkQjRx6BAgBEAU&url=https%3A%2F%2Fwww.aftership.com%2Fapps%2Fcsv-autofetch&psig=AOvVaw1oMyGV8gbmBTtFPNyWfVKv&ust=1541886899645709)
+This is home for the csv-parser example application in typescript. ![My pic](https://images.ctfassets.net/3n0fku9d0jjr/1caC38kuhK8WusWKQGIeAO/6a35483a56960b0ff258e5c6acb9c0d7/csv-autofetch.svg)
 
 ## Tags
 `mysql` `typescript` `node.js`
