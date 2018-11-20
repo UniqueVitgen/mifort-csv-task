@@ -3,8 +3,8 @@ This is home for the csv-parser example application in typescript. ![My pic](htt
 
 ##Where is typescript
 * the main file of typescript is located in root directory and called `index.ts`
-* others files are located in src/typescript directory
-* test files located in src/test
+* others files are located in `src/typescript` directory
+* test files located in `src/test`
 
 ## Tags
 `mysql` `typescript` `node.js`
